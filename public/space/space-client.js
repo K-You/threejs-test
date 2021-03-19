@@ -7,7 +7,7 @@ import SpaceBoid from './SpaceBoid.js';
 import { Color, CubeTextureLoader, Mesh, MeshStandardMaterial, Vector3 } from '/build/three.module.js';
 import { OBJLoader } from '/jsm/loaders/OBJLoader.js';
 
-const BOIDS_NUMBER = 200;
+const BOIDS_NUMBER = 300;
 const BOID_SPEED = 1;
 const BOID_ACCELERATION = BOID_SPEED / 2.5;
 const BOID_FORCE_MAX = BOID_ACCELERATION / 20.0;
@@ -92,8 +92,8 @@ class SpaceWorld extends game.Game {
 	// Uses blender obj files
 	createBoids(geometries) {
 		const positions = [
-			new Vector3(-200, -80, -100),
-			new Vector3(-130, -130, 250)
+			new Vector3(-100, -130, 80),
+			new Vector3(50, -100, 100)
 		];
 		const colors = [
 			new Color(0.5, 0.5, 4.0),

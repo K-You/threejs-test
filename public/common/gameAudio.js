@@ -19,7 +19,7 @@ class GameAudio {
     this.audioLoader.load('../resources/music.mp3', (buffer) => {
       sound.setBuffer(buffer);
       sound.setLoop(true);
-      sound.setVolume(0.01);
+      sound.setVolume(0.05);
       sound.play();
     })
 

@@ -1,12 +1,12 @@
 import math from '../common/math.js';
 import { Color, Group, Mesh, MeshStandardMaterial, PositionalAudio, Ray, Vector3 } from '/build/three.module.js';
 
-const BOID_FORCE_ORIGIN = 10;
+const BOID_FORCE_ORIGIN = 15;
 const BOID_FORCE_ALIGNMENT = 10;
 const BOID_FORCE_SEPARATION = 20;
 const BOID_FORCE_COLLISION = 50;
-const BOID_FORCE_COHESION = 5;
-const BOID_FORCE_WANDER = 3;
+const BOID_FORCE_COHESION = 6;
+const BOID_FORCE_WANDER = 5;
 
 class SpaceBoid {
   constructor(game, params){

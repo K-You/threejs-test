@@ -39,7 +39,7 @@ class Graphics {
     const near = 1.0;
     const far = 10000.0;
     this.camera = new PerspectiveCamera(fov, aspect, near, far);
-    this.camera.position.set(30, 20, 0);
+    this.camera.position.set(10, 140, -90);
 
     this.scene = new Scene();
 
