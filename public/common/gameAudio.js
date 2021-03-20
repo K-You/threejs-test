@@ -16,12 +16,12 @@ class GameAudio {
 
   initialize() {
     const sound = new Audio(this.musicListener);
-    this.audioLoader.load('../resources/music.mp3', (buffer) => {
-      sound.setBuffer(buffer);
-      sound.setLoop(true);
-      sound.setVolume(0.05);
-      sound.play();
-    })
+    // this.audioLoader.load('../resources/music.mp3', (buffer) => {
+    //   sound.setBuffer(buffer);
+    //   sound.setLoop(true);
+    //   sound.setVolume(0.05);
+    // sound.play();
+    // })
 
     this.audioLoader.load('../resources/explosion.m4a', (buffer) => {
       this.explosionBuffer = buffer;

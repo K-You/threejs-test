@@ -7,8 +7,8 @@ import SpaceBoid from './SpaceBoid.js';
 import { Color, CubeTextureLoader, Mesh, MeshStandardMaterial, Vector3 } from '/build/three.module.js';
 import { OBJLoader } from '/jsm/loaders/OBJLoader.js';
 
-const BOIDS_NUMBER = 300;
-const BOID_SPEED = 1;
+const BOIDS_NUMBER = 200;
+const BOID_SPEED = 2;
 const BOID_ACCELERATION = BOID_SPEED / 2.5;
 const BOID_FORCE_MAX = BOID_ACCELERATION / 20.0;
 
@@ -134,6 +134,9 @@ class SpaceWorld extends game.Game {
 			acceleration: BOID_ACCELERATION,
 		};
 		for (let i = 0; i < BOIDS_NUMBER; i++){
+			if (i==0) {
+				params.isFollowed = true;
+			}
 			params.seekGoal = positions[i % positions.length];
 			params.color = colors[i % colors.length];
 			

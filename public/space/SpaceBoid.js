@@ -1,7 +1,8 @@
+import ThirdPersonCamera from '../common/camera.js';
 import math from '../common/math.js';
 import { Color, Group, Mesh, MeshStandardMaterial, PositionalAudio, Ray, Vector3 } from '/build/three.module.js';
 
-const BOID_FORCE_ORIGIN = 15;
+const BOID_FORCE_ORIGIN = 40;
 const BOID_FORCE_ALIGNMENT = 10;
 const BOID_FORCE_SEPARATION = 20;
 const BOID_FORCE_COLLISION = 50;
@@ -46,7 +47,16 @@ class SpaceBoid {
 
     this.game = game;
     game.graphics.Scene.add(this.group);
+
     this.visibilityIndex = game.visibilityGrid.updateItem(this.mesh.uuid, this);
+
+    if(params.isFollowed){
+      this.isFollowed = true;
+      game.thirdPersonCamera = new ThirdPersonCamera({
+        camera: game.graphics.camera,
+        target: this
+      });
+    }
 
     this.wanderAngle = 0;
     this.seekGoal = params.seekGoal;
@@ -70,6 +80,10 @@ class SpaceBoid {
     return this.radius;
   }
 
+  get Rotation() {
+    return this.group.quaternion;
+  }
+
   step(timeInSeconds) {
     const local = this.game.visibilityGrid.getLocalEntities(this.Position, 15);
 
@@ -82,6 +96,7 @@ class SpaceBoid {
     this.group.quaternion.setFromUnitVectors(new Vector3(0, 1, 0), this.Direction);
 
     this.visibilityIndex = this.game.visibilityGrid.updateItem(this.mesh.uuid, this, this.visibilityIndex);
+    this.game.thirdPersonCamera.update(timeInSeconds);
   }
 
   applySteering(timeInSeconds, local) {
