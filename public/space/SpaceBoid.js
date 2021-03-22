@@ -2,7 +2,7 @@ import ThirdPersonCamera from '../common/camera.js';
 import math from '../common/math.js';
 import { Color, Group, Mesh, MeshStandardMaterial, PositionalAudio, Ray, Vector3 } from '/build/three.module.js';
 
-const BOID_FORCE_ORIGIN = 40;
+const BOID_FORCE_ORIGIN = 10;
 const BOID_FORCE_ALIGNMENT = 10;
 const BOID_FORCE_SEPARATION = 20;
 const BOID_FORCE_COLLISION = 50;
@@ -62,6 +62,10 @@ class SpaceBoid {
     this.seekGoal = params.seekGoal;
     this.fireCooldown = 0.0;
     this.params = params;
+  }
+
+  get Color() {
+    return this.col
   }
 
   get Position() {

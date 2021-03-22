@@ -61,7 +61,7 @@ class BlasterSystem {
     const p = {
       Start: new Vector3(0, 0, 0),
       End: new Vector3(0, 0, 0),
-      Colour: new Color(),
+      Color: new Color(),
       Size: 1,
       Alive: true,
     };
